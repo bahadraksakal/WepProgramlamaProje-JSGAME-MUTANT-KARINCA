@@ -7,14 +7,14 @@
 
 <ol>
   <li>
-      <h3>Projede Kullanılan Teknoloji Ve Diller:</h3>
+      <h3 color="Red">Projede Kullanılan Teknoloji Ve Diller:</h3>
       <ul>
         <li>Saf Js ile yazılmıştır</li>
         <li> CSS ve HTML kodları içerir</li>
       </ul>
   </li>
   <li>
-      <h3>Nasıl Oynanır:</h3>
+      <h3 color="Red">Nasıl Oynanır:</h3>
       <ul>
         <li>Karakteriniz - Mutant Karınca</li>
         <li>Düşmanlarınız - Mutant Örümcekler</li>
@@ -23,7 +23,7 @@
       </ul>
   </li>
   <li>
-      <h3>Emeği Geçenler:</h3>
+      <h3 color="Red">Emeği Geçenler:</h3>
       <ul>
         <li>Çağla Yağmur İçer - Görsel dosyalarının tasarım ve çizimlerini yaptı (.png formatlı)</li>
     </ul>
