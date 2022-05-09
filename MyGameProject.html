@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mutant Karınca</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Karıncayı yaşat" />
+    <meta name="keywords" content="karınca , karınca oyunu , karıncayı yaşat oyna" />
+    <meta name="author" content="Ahmet Bahadır Aksakal 20360859079" />
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            border: none;
+        }
+
+        .my-bg {
+            background-image: url("ant-game-background.png");
+            background-color: #000000;
+            /* Add the blur effect */
+            /*filter: blur(3px);*/
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .bg-game {
+            background-color: rgb(255, 255, 255);
+            /* Fallback color */
+            color: black;
+            font-weight: bold;
+            border: 3px solid #000000;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 600px;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .baslik {
+            font-weight: bold;
+            font-family: cursive;
+        }
+
+        .buttonx {
+            width: 200px;
+            height: 122px;
+            border: 0;
+            background-color: #FFEB74;
+            cursor: pointer;
+            text-align: center;
+            padding-bottom: 70px;
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        .buttonx:hover {
+            background-image: url("ant_button.png");
+            background-size: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="my-bg"></div>
+    <div id="menu" align="center">
+        <div class="bg-game baslik" style="background-color: #115006;">
+            <table widht="800px" height="600px" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <td colspan="2" align="center" style="width: 800px;">
+                            <h1>MUTANT KARINCA</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" align="right">
+                            <h3 style="padding-right: 10px;">Created ByBahox</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h4 style="padding-left: 10px;">Ogrenci No: 20360859079</h4>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <h4 style="padding-left: 10px;">Ad-Soyad: AHMET BAHADIR AKSAKAL</h4>
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td align="justify" id="learnStr" style="display: none;"> Aşağı ve Yukarı Yön tuşlarını
+                            kullanarak Örümceklerden kaçın.<br>
+                            Ne kadar çok ürümcekten kaçarsanız o kadar yüksek skorunuz olur.</td>
+                        <td align="center"><button id="start_game" onclick="showGame()" class="buttonx">Oyuna
+                                Başla</button></td>
+                        <td align="center"><button id="learn_game" onclick="learnGame()" class="buttonx">Nasıl
+                                Oynanır</button></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td id="backMenuTd" style="display:none;">
+                            <button id="backMenuBut" onclick="backMenu()" class="buttonx" style="display: none;">
+                                Menüye Dön
+                            </button>
+                        </td>
+                        <td id="skorID" colspan="2">Son Skor: ?</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+
+        </div>
+    </div>
+    <div id="game" align="center" style="display: none;">
+        <canvas class="bg-game" id="gameCanvas" style="border: 2px solid #000000">
+            <button></button>
+        </canvas>
+    </div>
+    <script>
+        function backMenu() {
+            document.getElementById("start_game").style.display = "block";
+            document.getElementById("learn_game").style.display = "block";
+            document.getElementById("skorID").style.display = "block";
+            document.getElementById("learnStr").style.display = "none";
+            document.getElementById("backMenuBut").style.display = "none";
+            document.getElementById("backMenuTd").style.display = "none";
+        }
+        function learnGame() {
+            document.getElementById("start_game").style.display = "none";
+            document.getElementById("learn_game").style.display = "none";
+            document.getElementById("skorID").style.display = "none";
+            document.getElementById("learnStr").style.display = "block";
+            document.getElementById("backMenuBut").style.display = "block";
+            document.getElementById("backMenuTd").style.display = "block";
+
+        }
+        function showGame() {
+            document.getElementById("menu").style.display = "none";
+            document.getElementById("game").style.display = "block";
+            draw();
+        }
+        //var interval = setInterval(draw,10);
+        var canvas = document.getElementById("gameCanvas");
+        var ctx = canvas.getContext("2d");
+        var bgImage = new Image();
+        var bgImage2 = new Image();
+        var myEnemy = new Image();
+        myEnemy.src = "el-0.png";
+        bgImage.src = "game_bg_0.png";
+        bgImage2.src = "game_bg_0.png";
+        var score = 0;
+        var gameSpeed = 0;
+        var carpan = 0;
+        var sizeX = 50;
+        var sizeY = 50;
+        var cX = 100;
+        var cY = 300;
+        var flag = 0;
+        var flag2 = 0;
+        var flag3 = 0;
+        var flag4 = 0;
+        var eY_temp = Math.floor(Math.random() * 200 + 190);;
+        var eY_temp2 = Math.floor(Math.random() * 200 + 190);;
+        var size_cX = 40.0;
+        var size_cY = 40.0;
+        var mychracter;
+        var mychracters = new Array();
+        var myEnemyiesImage = new Array();
+        var myEnemyies = [];
+        myEnemyies[0] = {
+            eX: 800,
+            eY: 400,
+            sizexEnemy: Math.floor(Math.random() * 50 + 100),
+            sizeyEnemy: Math.floor(Math.random() * 50 + 50)
+        }
+        myEnemyies[1] = {
+            eX: 800,
+            eY: 200,
+            sizexEnemy: Math.floor(Math.random() * 50 + 100),
+            sizeyEnemy: Math.floor(Math.random() * 50 + 50)
+        }
+
+
+
+        for (var i = 0; i < 62; i++) {
+            mychracters[flag3] = new Image();
+            mychracters[flag3].src = "5722bcc10952462fa6d2c4305ad53a53nt4N8r2WpgLxV7xF-" + flag3 + ".png";
+            flag3++;
+        }
+        flag3 = 0;
+
+        for (var i = 0; i < 19; i++) {
+            myEnemyiesImage[flag] = new Image();
+            myEnemyiesImage[flag].src = "el-" + flag + ".png";
+            flag++;
+        }
+        flag = 0;
+
+        function draw() {
+            canvas.width = bgImage.naturalWidth;
+            canvas.height = bgImage.naturalHeight;
+            ctx.fillStyle = "#7E1806";
+            ctx.font = "900 18px Verdana";            
+            ctx.imageSmoothingEnabled = false;
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            ctx.drawImage(bgImage, gameSpeed, 0, bgImage.width, bgImage.height, 0, 0, canvas.width, canvas.height);
+            ctx.drawImage(bgImage2, gameSpeed - bgImage2.naturalWidth, 0, bgImage2.width, bgImage2.height, 0, 0, canvas.width, canvas.height);
+            if (gameSpeed > bgImage2.naturalWidth) {
+                gameSpeed = 0;
+            }
+            gameSpeed = gameSpeed + 0.5;
+            ctx.drawImage(mychracters[flag3], 0, 0, mychracters[flag3].width, mychracters[flag3].height, cX, cY, size_cX, size_cY);
+            flag4++;
+            if (flag3 <= 61 && flag4 >= 6) {
+                flag4 = 0;
+                flag3++;
+            }
+            if (flag3 > 61) {
+                flag3 = 0;
+            }
+
+            flag2++;
+            if (flag <= 18 && flag2 >= 10) {
+                flag2 = 0;
+                myEnemy = myEnemyiesImage[flag];
+                flag++;
+            }
+            drawEnemyies();
+            if (flag == 18) {
+                flag = 0;
+            }
+
+            ctx.fillText("Score : " + myEnemyies.length, 640, 590);
+            requestAnimationFrame(draw);
+        }
+        function moveup() {
+            if (cY <= 235) {
+                return;
+            }
+            size_cX -= 0.3;
+            size_cY -= 0.3;
+            cY -= 7;
+        }
+        function movedown() {
+            if (cY >= 430) {
+                return;
+            }
+            size_cX += 0.3;
+            size_cY += 0.3;
+            cY += 7;
+        }
+        document.addEventListener("keydown", moveCharacter,);
+        function moveCharacter(event) {
+            switch (event.key) {
+                case "ArrowUp":
+                    moveup();
+                    break;
+                case "ArrowDown":
+                    movedown();
+                    break;
+                default:
+                    return;
+            }
+
+        }
+        function drawEnemyies() {
+
+            for (var i = 0; i < myEnemyies.length; i++) {
+
+                ctx.drawImage(myEnemy, 0, 0, myEnemy.width, myEnemy.height, myEnemyies[i].eX, myEnemyies[i].eY, myEnemyies[i].sizexEnemy, myEnemyies[i].sizeyEnemy);
+                myEnemyies[i].eX -= 2;
+                eY_temp2 = eY_temp;
+                eY_temp = Math.floor(Math.random() * 200 + 190);
+                while (Math.abs(eY_temp2 - eY_temp) < 40) {
+                    eY_temp = Math.floor(Math.random() * 200 + 190);
+                }
+                if (myEnemyies[i].eX == 300) {
+
+                    myEnemyies.push({
+                        eX: canvas.width,
+                        eY: eY_temp,
+                        sizexEnemy: Math.floor(Math.random() * 50 + 100),
+                        sizeyEnemy: Math.floor(Math.random() * 50 + 50)
+                    });
+                }
+
+                if (cX >= myEnemyies[i].eX + 30 && cX + size_cX <= myEnemyies[i].eX + myEnemyies[i].sizexEnemy + 20 &&
+                    ((cY <= myEnemyies[i].eY + 5 && cY + size_cY >= myEnemyies[i].eY + 30) || (cY <= myEnemyies[i].eY + myEnemyies[i].sizeyEnemy - 20 && cY + size_cY >= myEnemyies[i].eY + myEnemyies[i].sizeyEnemy - 30))) {
+                    alert("Oldunn Cıkkk  || score: " + myEnemyies.length);
+                    location.reload(); // reload the page
+                    document.getElementById("game").style.display = "none";
+                    document.getElementById("menu").style.display = "block";
+                    document.getElementById("skorID").innerText = "Son Skor: " + myEnemyies.length;
+                    reset();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
