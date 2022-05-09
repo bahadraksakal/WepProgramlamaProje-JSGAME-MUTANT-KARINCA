@@ -1,7 +1,7 @@
 # 2. Sınıf Bahar Dönemi Wep Programlama Projem: MutantKarınca
 
-<h3 align="center" color="Purple">Ahmet Bahadır Aksakal</h3>
-<h4 align="center" color="Purple">20360859079</h4>
+<h3 align="center" color="Darkblue">Ahmet Bahadır Aksakal</h3>
+<h4 align="center" color="Darkblue">20360859079</h4>
 <h5 align="center" color="Darkblue">2. Sınıf Bahar Dönemi Web Programlama Proje Ödevim</h5>
 <h6 align="center" color="Purple"><a href="http://bahadr-aksakal-web-programlama-p.eu5.org/">Oyunu Oynamak İçin Tıklayın</a></h6>
 
