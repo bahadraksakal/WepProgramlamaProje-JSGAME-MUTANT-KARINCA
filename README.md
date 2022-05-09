@@ -21,11 +21,11 @@
   <li>
       <h3>Emeği Geçenler:</h3>
       <ul>
-        <li>Çağla Yağmur İçer - .png formatlı dosyaların tasarım ve çizimlerini yaptı</li>
+        <li>Çağla Yağmur İçer - Görsel dosyalarının tasarım ve çizimlerini yaptı (.png formatlı)</li>
     </ul>
   </li>
 </ol>
 
-<h3>Ahmet Bahadır Aksakal</h3>
-<h4>20360859079</h4>
-<h5>2. Sınıf Bahar Dönemi Web Programlama Proje Ödevim</h5>
+<h3 align="center">Ahmet Bahadır Aksakal</h3>
+<h4 align="center">20360859079</h4>
+<h5 align="center">2. Sınıf Bahar Dönemi Web Programlama Proje Ödevim</h5>
