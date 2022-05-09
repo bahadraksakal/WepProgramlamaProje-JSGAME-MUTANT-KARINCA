@@ -1,6 +1,10 @@
 # 2. Sınıf Bahar Dönemi Wep Programlama Projem: MutantKarınca
 
-<a href="http://bahadr-aksakal-web-programlama-p.eu5.org/">Oyunu Oynamak İçin Tıklayınnn :)</a>
+<h3 align="center">Ahmet Bahadır Aksakal</h3>
+<h4 align="center">20360859079</h4>
+<h5 align="center">2. Sınıf Bahar Dönemi Web Programlama Proje Ödevim</h5>
+<h6 align="center"><a href="http://bahadr-aksakal-web-programlama-p.eu5.org/" color="Purple">Oyunu Oynamak İçin Tıklayın</a></h6>
+
 <ol>
   <li>
       <h3>Projede Kullanılan Teknoloji Ve Diller:</h3>
@@ -26,6 +30,4 @@
   </li>
 </ol>
 
-<h3 align="center">Ahmet Bahadır Aksakal</h3>
-<h4 align="center">20360859079</h4>
-<h5 align="center">2. Sınıf Bahar Dönemi Web Programlama Proje Ödevim</h5>
+
