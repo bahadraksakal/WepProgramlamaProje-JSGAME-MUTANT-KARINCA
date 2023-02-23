@@ -28,6 +28,14 @@
         <li>Çağla Yağmur İçer - Görsel dosyalarının tasarım ve çizimlerini yaptı (.png formatlı)</li>
     </ul>
   </li>
+  <li>
+      <h3 color="Red">Programdan Görseller:</h3>
+      <ul>        
+        <li><img src="GorsellerReadme/1.png"></li> 
+        <li><img src="GorsellerReadme/2.png"></li>
+        <li><img src="GorsellerReadme/3.png"></li>
+      </ul>
+  </li>
 </ol>
 
 
