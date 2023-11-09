@@ -13,7 +13,7 @@
 
 #### [EN]
 
-## 2\. Class Spring Semester Web Programming Project Mutant Ant
+## 2nd Grade Spring Semester Web Programming Project Mutant Ant
 
 ###### [Click to Play the Game](http://bahadr-aksakal-web-programlama-p.eu5.org/)
 
